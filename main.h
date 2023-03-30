@@ -4,16 +4,20 @@
 #include <stdio.h>
 
 int _printf(const char *format, ...);
+/**
+* struct especial - Typedef struct
+* @espc: pointer to the argument
+* @print: The function associated
+*/
 
 typedef struct especial
-
 {
 	char *espc;
 	int (*print)(va_list args);
 
 } especial;
 
-
+int get_especial(char var, va_list args);
 int print_char(va_list args);
 int print_decimal(va_list args);
 int print_exponential(va_list args);
@@ -24,5 +28,6 @@ int print_octal(va_list args);
 int print_string(va_list args);
 int print_unsigned(va_list args);
 int print_hex(va_list args);
+
 
 #endif
