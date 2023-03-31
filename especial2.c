@@ -39,11 +39,33 @@ int print_intenger(va_list args)
  */
 int print_octal(va_list args)
 {
-	char character;
+	int fd = STDOUT_FILENO; 
+    unsigned int num = va_arg(args, unsigned int);
+	char octal_string_reversed[12];
+    char octal_digits[] = "01234567";
+    char octal_string[12];
+    int i, j, bytes_written;
+   
+    while (num != 0)
+	{
+        octal_string[i] = octal_digits[num % 8];
+        num /= 8;
+        i++;
+    }
+    octal_string[i] = '\0';
 
-	character = va_arg(args, int);
-	write(1, &character, 1);
-	return (1);
+    for (j = 0; j < i; j++)
+	{
+        octal_string_reversed[j] = octal_string[i - 1 - j];
+    }
+    bytes_written = write(fd, octal_string_reversed, i);
+
+    if (bytes_written < 0)
+	{
+        return -1;
+    }
+
+    return bytes_written;
 }
 
 /**

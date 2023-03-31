@@ -36,7 +36,7 @@ Conversion specifiers are handled:
 
 .br
 .B %f
-- Prints a float number that can be positive or negative .
+- Prints a float number that can be positive or negative.
 
 .br
 .B %g
@@ -61,7 +61,7 @@ Characters  from the  array are written up to (but not including) a terminating 
 
 .br
 .B %x
-- Prints a lowercase unsigned hexadecimal .
+- Prints a lowercase unsigned hexadecimal.
 
 .br
 .B %X
