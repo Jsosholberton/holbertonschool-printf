@@ -39,33 +39,31 @@ int print_intenger(va_list args)
  */
 int print_octal(va_list args)
 {
-	int fd = STDOUT_FILENO; 
-    unsigned int num = va_arg(args, unsigned int);
+	int fd = STDOUT_FILENO;
+	unsigned int num = va_arg(args, unsigned int);
 	char octal_string_reversed[12];
-    char octal_digits[] = "01234567";
-    char octal_string[12];
-    int i, j, bytes_written;
-   
-    while (num != 0)
-	{
-        octal_string[i] = octal_digits[num % 8];
-        num /= 8;
-        i++;
-    }
-    octal_string[i] = '\0';
+	char octal_digits[] = "01234567";
+	char octal_string[12];
+	int i, j, bytes_written;
 
-    for (j = 0; j < i; j++)
+	while (num != 0)
 	{
-        octal_string_reversed[j] = octal_string[i - 1 - j];
-    }
-    bytes_written = write(fd, octal_string_reversed, i);
-
-    if (bytes_written < 0)
+		octal_string[i] = octal_digits[num % 8];
+		num /= 8;
+		i++;
+	}
+	octal_string[i] = '\0';
+	for (j = 0; j < i; j++)
 	{
-        return -1;
-    }
+		octal_string_reversed[j] = octal_string[i - 1 - j];
+	}
+	bytes_written = write(fd, octal_string_reversed, i);
+	if (bytes_written < 0)
+	{
+		return (-1);
+	}
 
-    return bytes_written;
+	return (bytes_written);
 }
 
 /**
@@ -97,24 +95,23 @@ int print_string(va_list args)
 int print_unsigned(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
-    char buffer[20];
-    int i, n, j = 0;
-    
-    do {
-        buffer[i++] = num % 10 + '0';
-        num /= 10;
-    } while (num > 0);
-    
-    for (j = i - 1; j >= 0; j--) 
+	char buffer[20];
+	int i, n, j = 0;
+
+	do {
+		buffer[i++] = num % 10 + '0';
+		num /= 10;
+	} while (num > 0);
+
+	for (j = i - 1; j >= 0; j--)
 	{
-        if (write(1, &buffer[j], 1) == -1)
+		if (write(1, &buffer[j], 1) == -1)
 		{
-        	return -1;
-        }
-        n++;
-    }
-    
-    return (n);
+			return (-1);
+		}
+		n++;
+	}
+	return (n);
 }
 
 /**

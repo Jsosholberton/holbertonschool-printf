@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <unistd.h>
 /**
  * print_char - print a character
  * @args: variable to print
@@ -62,10 +62,17 @@ int print_decimal(va_list args)
  */
 int print_exponential(va_list args)
 {
-	float exponential = va_arg(args, double);
+	double num = va_arg(args, double);
+	char buffer[20];
+	int count = 0, i;
+	int len = sprintf(buffer, "%e", num);
 
-	write(1, &exponential, 1);
-	return (1);
+	for (i = 0; i < len; i++)
+	{
+		write(1, buffer + i, 1);
+		count++;
+	}
+	return (count);
 }
 
 /**
@@ -76,10 +83,17 @@ int print_exponential(va_list args)
  */
 int print_float(va_list args)
 {
-	char flooat = va_arg(args, double);
+	double num = va_arg(args, double);
+	char buffer[32];
+	int count = 0, i;
+	int n = sprintf(buffer, "%.6f", num);
 
-	write(1, &flooat, 1);
-	return (1);
+	for (i = 0; i < n; i++)
+	{
+		write(1, &buffer[i], 1);
+		count++;
+	}
+	return (count);
 }
 
 /**
@@ -90,13 +104,15 @@ int print_float(va_list args)
  */
 int print_general(va_list args)
 {
-	int i = 0;
-	char *general = va_arg(args, char *);
+	double num = va_arg(args, double);
+	char buffer[20];
+	int count = 0, i;
+	int len = sprintf(buffer, "%g", num);
 
-	while (general[i] != '\0')
+	for (i = 0; i < len; i++)
 	{
-		write(1, &general[i], 1);
-		i++;
+		write(1, buffer + i, 1);
+		count++;
 	}
-	return (i);
+	return (count);
 }
