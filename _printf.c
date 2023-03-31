@@ -12,16 +12,12 @@ int _printf(const char *format, ...)
 	int count = 0, i = 0, tipe = 0;
 
 	va_start(args, format);
-	if (format == NULL)
-	{
-		return (0);
-	}
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
 			tipe = get_especial(format[i + 1], args);
-			if (tipe == -1)
+			if (tipe == -1 && format[i + 1] != '\0')
 			{
 				if (format[i + 1] == '%')
 				{
@@ -32,6 +28,7 @@ int _printf(const char *format, ...)
 				else
 				{
 					write(1, &format[i], 1);
+					count++;
 				}
 			}
 			else
