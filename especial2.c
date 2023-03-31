@@ -76,8 +76,18 @@ int print_string(va_list args)
 {
 	char *string;
 	int i = 0;
+	char *error = "(null)";
 
 	string = va_arg(args, char *);
+	if (string == NULL)
+	{
+		while (error[i] != '\0')
+		{
+			write(1, &error[i], 1);
+			i++;
+		}
+		return (i);
+	}
 	while (string[i] != '\0')
 	{
 		write(1, &string[i], 1);
