@@ -1,0 +1,78 @@
+.TH man_3_printf "March 30, 2023" "version 0.01" 
+
+.SH NAME
+.B _printf
+- a particular implementation of printf function.
+
+.SH SYNOPSIS
+_printf FORMAT [ARGUMENT]...
+
+.SH FORMAT OF THE FORMAT STRING
+Format - is a character string.
+
+.TP
+The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream;
+and conversion specifications, each of which results in fetching zero or more sub sequent arguments. 
+
+.SH DESCRIPTION
+Function produces output according to a format. We handle the conversion specifiers described in OPTIONS.
+
+.TP
+Don't handled: the flag characters, field width, precision, the length modifiers
+
+.SH OPTIONS
+Conversion specifiers are handled:
+.br
+.B %c
+- Prints a character. The int argument is converted to an unsigned char.
+
+.br
+.B %d
+- Prints a number in decimal. The  int  argument is converted to signed decimal notation.
+
+.br
+.B %e
+- Prints an exponential number where the input is a positive number other than 1.
+
+.br
+.B %f
+- Prints a float number that can be positive or negative .
+
+.br
+.B %g
+- Prints a .
+
+.br
+.B %i
+- Prints a number as integer.
+
+.br
+.B %o
+- Prints a number octal.
+
+.br
+.B %s
+- Prints a string. The const char * argument is a pointer to an array of character type (pointer to a string). 
+Characters  from the  array are written up to (but not including) a terminating null byte ('\0').
+
+.br
+.B %u
+- Prints a unsigned number.
+
+.br
+.B %x
+- Prints a lowercase unsigned hexadecimal .
+
+.br
+.B %X
+- Prints an unsigned hexadecimal in uppercase.
+
+.br
+.B %p
+- Prints a the content of a pointer (an address).
+
+.SH RETURN VALUES
+The number of characters printed (excluding tha null byte used to end output to strings). Write output to stdout, the standart output stream.
+
+.SH AUTHOR
+JOHNATAN STEVEN ORTIZ & MARIA JOSE MURILLO
