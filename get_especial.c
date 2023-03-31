@@ -21,8 +21,11 @@ int get_especial(char var, va_list args)
 		{"s", print_string},
 		{"u", print_unsigned},
 		{"x", print_hex},
+		{"X", print_hex_up},
+		{"p", print_direction},
 		{NULL, NULL}
 	};
+
 	while (character[tipe].espc != NULL)
 	{
 		if (var == *(character[tipe].espc))

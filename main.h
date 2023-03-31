@@ -28,6 +28,7 @@ int print_octal(va_list args);
 int print_string(va_list args);
 int print_unsigned(va_list args);
 int print_hex(va_list args);
-
+int print_hex_up(va_list args);
+int print_direction(va_list args);
 
 #endif

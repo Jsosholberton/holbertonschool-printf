@@ -81,16 +81,47 @@ int print_unsigned(va_list args)
 	return (1);
 }
 /**
- * print_hex - print a hexadecimal
+ * print_direction - print a hexadecimal
  * @args: variable to print
  *
  * Return: the number of characters printed
  */
-int print_hex(va_list args)
+int print_direction(va_list args)
 {
-	char character;
+	void *ptr = va_arg(args, void *);
+	char buffer[20];
+	int count = 0;
+	unsigned long int_val = (unsigned long) ptr;
+	int i = 0, digit;
 
-	character = va_arg(args, int);
-	write(1, &character, 1);
-	return (1);
+	while (int_val > 0)
+	{
+		digit = int_val % 16;
+		if (digit < 10)
+		{
+			*(buffer + i) = '0' + digit;
+		}
+		else
+		{
+			*(buffer + i) = 'a' + digit - 10;
+		}
+		int_val /= 16;
+		i++;
+	}
+	if (i == 0)
+	{
+		*(buffer + i) = '0';
+		i++;
+	}
+	*(buffer + i) = 'x';
+	i++;
+	*(buffer + i) = '0';
+	i++;
+	while (i > 0)
+	{
+		i--;
+		write(1, buffer + i, 1);
+		count++;
+	}
+	return (count);
 }
