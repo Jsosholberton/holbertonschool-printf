@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - print anything
  * @format: string to be printed
@@ -12,6 +11,10 @@ int _printf(const char *format, ...)
 	int count = 0, i = 0, tipe = 0;
 
 	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	{
+		return (-1);
+	}
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
