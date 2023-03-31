@@ -10,13 +10,13 @@ This repository contains the files to print the output according to the type of 
 * You don’t have to handle precision
 * You don’t have to handle the length modifiers
 * Authorized functions:
- * ```write``` (```man 3 write```)
- * ```malloc``` (```man 3 malloc```)
- * ```free``` (```man 3 free```)
- * ```va_start``` (```man 3 va_start```)
- * ```va_end``` (```man 3 va_end```)
- * ```va_copy``` (```man 3 va_copy```)
- * ```va_arg``` (```man 3 va_arg```)
+  * ```write``` (```man 3 write```)
+  * ```malloc``` (```man 3 malloc```)
+  * ```free``` (```man 3 free```)
+  * ```va_start``` (```man 3 va_start```)
+  * ```va_end``` (```man 3 va_end```)
+  * ```va_copy``` (```man 3 va_copy```)
+  * ```va_arg``` (```man 3 va_arg```)
 
 ## Flowchar
 (https://app.diagrams.net/#G1F5QzAlsJS6WULCc9g6aoiUe1DWUqKHFh)
