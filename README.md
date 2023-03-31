@@ -32,7 +32,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 |[main.h](https://github.com/Jsosholberton/holbertonschool-printf/blob/master/main.h)    | Declaration of all functions to be used, as well as libriaries |
 |[main.c](https://github.com/Jsosholberton/holbertonschool-printf/blob/master/main.c) | Inputs that the function will have and expectation of outputs |
 |[_print.c](https://github.com/Jsosholberton/holbertonschool-printf/blob/master/_printf.c) | Main function that returns the number of characters printed |
-|[get_especial.c](https://github.com/Jsosholberton/holbertonschool-printf/blob/master/get_especial.c) | get the function and execute it |
+|[get_especial.c](https://github.com/Jsosholberton/holbertonschool-printf/blob/master/get_especial.c) | Get the function and execute it |
 |[hex.c](https://github.com/Jsosholberton/holbertonschool-printf/blob/master/hex.c) | Functions that print a hexadecimal in upper or lower case |
 |[especial.c](https://github.com/Jsosholberton/holbertonschool-printf/blob/master/especial.c) | Contains the functions to return a char, general, a number in; decimal, exponential and float. |
 |[especial2.c](https://github.com/Jsosholberton/holbertonschool-printf/blob/master/especial2.c) | Contains the functions to return a string, address, unsigned, a number in; integer and octal. |
