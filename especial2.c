@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * print_intenger - print a intenger
@@ -75,11 +74,27 @@ int print_string(va_list args)
  */
 int print_unsigned(va_list args)
 {
-	int unsig = va_arg(args, int);
-
-	write(1, &unsig, 1);
-	return (1);
+	unsigned int num = va_arg(args, unsigned int);
+    char buffer[20];
+    int i, n, j = 0;
+    
+    do {
+        buffer[i++] = num % 10 + '0';
+        num /= 10;
+    } while (num > 0);
+    
+    for (j = i - 1; j >= 0; j--) 
+	{
+        if (write(1, &buffer[j], 1) == -1)
+		{
+        	return -1;
+        }
+        n++;
+    }
+    
+    return (n);
 }
+
 /**
  * print_direction - print a hexadecimal
  * @args: variable to print

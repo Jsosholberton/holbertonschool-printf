@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * get_especial - get the function and run the function
  * @var: variable to compare

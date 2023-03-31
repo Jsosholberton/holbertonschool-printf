@@ -1,5 +1,5 @@
 #include "main.h"
-#include <unistd.h>
+
 /**
  * print_hex - print a hexadecimal
  * @args: variable to print
