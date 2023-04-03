@@ -48,5 +48,6 @@ int main(void)
     len2 = printf("%i - %i = %i\n", 1024, 2048, -1024);
     _printf("%i\n", len);
     printf("%i\n", len2);
+    _printf("%i\n", INT_MIN);
     return (0);
 }

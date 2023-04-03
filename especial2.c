@@ -14,15 +14,14 @@ int print_intenger(va_list args)
 	int i = 0;
 	int tmp = n;
 
-	if (n == INT_MIN)
-	{
-		n = INT_MAX;
-	}
 	if (n < 0)
 	{
 		n = -n;
 	}
-
+	if (n == INT_MIN)
+	{
+		n = INT_MAX;
+	}
 	do {
 		buffer[i++] = (n % 10) + '0';
 		n /= 10;
@@ -32,6 +31,10 @@ int print_intenger(va_list args)
 	{
 		buffer[i++] = '-';
 		len++;
+	}
+	if (tmp == -2147483648)
+	{
+		buffer[0] = '8';
 	}
 	while (i > 0)
 	{
