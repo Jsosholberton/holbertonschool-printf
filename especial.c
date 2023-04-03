@@ -22,27 +22,27 @@ int print_char(va_list args)
  */
 int print_decimal(va_list args)
 {
-	int n = va_arg(args, int);
+	long int n = va_arg(args, int);
 	char buffer[16];
-	int i = 0, j;
+	int i = 0, j = 0;
+	int sign;
 
 	if (n == 0)
 	{
-		buffer[i++] = '0';
+		buffer[i] = '0';
+		write(1, &buffer[i] , 1);
+		i++;
 	}
 	else
 	{
-		if (n < 0)
-		{
-			write(1, "-", 1);
-			n = -n;
-		}
+		sign = (n < 0) ? -1 : 1;
+		n = sign * n;
 		while (n != 0)
 		{
 			buffer[i++] = '0' + n % 10;
-			n /= 10;
+		       n /= 10;
 		}
-		if (buffer[0] == '-')
+		if (sign < 0)
 		{
 			buffer[i++] = '-';
 		}
