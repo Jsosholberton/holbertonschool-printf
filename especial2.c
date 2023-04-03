@@ -12,21 +12,30 @@ int print_intenger(va_list args)
 	int n = va_arg(args, int);
 	char buffer[32];
 	int i = 0;
+	int tmp = n;
 
+	if (n == INT_MIN)
+	{
+		n = INT_MAX;
+	}
 	if (n < 0)
 	{
-		buffer[i++] = '-';
 		n = -n;
 	}
+
 	do {
 		buffer[i++] = (n % 10) + '0';
 		n /= 10;
-	} while (n > 0);
+	}while (n > 0);
 	len = i;
+	if (tmp < 0)
+	{
+		buffer[i++] = '-';
+	}
 	while (i > 0)
 	{
 		i--;
-		write(1, &buffer[i], 1);
+		write (1, &buffer[i], 1);
 	}
 	return (len);
 }

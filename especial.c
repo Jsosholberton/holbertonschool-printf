@@ -30,7 +30,7 @@ int print_decimal(va_list args)
 	if (n == 0)
 	{
 		buffer[i] = '0';
-		write(1, &buffer[i] , 1);
+		write(1, &buffer[i], 1);
 		i++;
 	}
 	else
@@ -40,7 +40,7 @@ int print_decimal(va_list args)
 		while (n != 0)
 		{
 			buffer[i++] = '0' + n % 10;
-		       n /= 10;
+			n /= 10;
 		}
 		if (sign < 0)
 		{
