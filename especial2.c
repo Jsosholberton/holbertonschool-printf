@@ -26,16 +26,17 @@ int print_intenger(va_list args)
 	do {
 		buffer[i++] = (n % 10) + '0';
 		n /= 10;
-	}while (n > 0);
+	} while (n > 0);
 	len = i;
 	if (tmp < 0)
 	{
 		buffer[i++] = '-';
+		len++;
 	}
 	while (i > 0)
 	{
 		i--;
-		write (1, &buffer[i], 1);
+		write(1, &buffer[i], 1);
 	}
 	return (len);
 }
